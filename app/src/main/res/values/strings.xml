@@ -11,6 +11,6 @@
     <string name="action_settings">Settings</string>
     <!-- Messages -->
     <string name="edit_message">Enter a message</string>
-    <string name="empty_input_text_message">Debe ingresar texto en el campo.</string>
+    <string name="empty_input_text_message">Please insert text in the input.</string>
     <string name="hello_world">Hello world!</string>
 </resources>
