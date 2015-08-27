@@ -14,6 +14,8 @@ public class MyActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
 
+    private Toast toast = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,13 @@ public class MyActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main_activity_actions, menu);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onPause(){
+        if(toast != null)
+            toast.cancel();
+        super.onPause();
     }
 
     @Override
@@ -69,9 +78,14 @@ public class MyActivity extends AppCompatActivity {
         if( !message.isEmpty() ) {
             intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
-        }else{
-            Toast toast = Toast.makeText(this, "Debe ingresar texto en el campo.", Toast.LENGTH_SHORT);
-            toast.show();
+        }else {
+            if (toast != null) {
+                if (!toast.getView().isShown())
+                    toast.show();
+            }else{
+                toast = Toast.makeText(getApplicationContext(), R.string.empty_input_text_message, Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
     }
 }
