@@ -71,21 +71,20 @@ public class MyActivity extends AppCompatActivity {
 
     /** Called when the user clicks the Send button */
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString().trim();
 
         if( !message.isEmpty() ) {
+            Intent intent = new Intent(this, DisplayMessageActivity.class);
             intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
         }else {
-            if (toast != null) {
-                if (!toast.getView().isShown())
-                    toast.show();
-            }else{
+            if (toast == null)
                 toast = Toast.makeText(getApplicationContext(), R.string.empty_input_text_message, Toast.LENGTH_SHORT);
+
+            if (!toast.getView().isShown())
                 toast.show();
-            }
         }
     }
 }
