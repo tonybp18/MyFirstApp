@@ -12,17 +12,16 @@ public class DisplayMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_display_message);
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
 
-        //DfasdfgetSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        TextView textView = new TextView(this);
+        TextView textView = (TextView) findViewById(R.id.display_message);
         textView.setTextSize(40);
         textView.setText(message);
-
-        //setContentView(R.layout.activity_display_message);
-        setContentView(textView);
     }
 
     @Override
@@ -39,4 +38,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
