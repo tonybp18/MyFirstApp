@@ -1,5 +1,24 @@
 package com.mycompany.myfirstapp;
 
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class BlankFragment extends Fragment {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_blank, container, false);
+    }
+}
+
+// Codigo auto generado por Android Studio hace crash.
+/*
+package com.mycompany.myfirstapp;
+
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +36,7 @@ import android.view.ViewGroup;
  * to handle interaction events.
  * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
- */
+ * /
 public class BlankFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +56,7 @@ public class BlankFragment extends Fragment {
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
      * @return A new instance of fragment BlankFragment.
-     */
+     * /
     // TODO: Rename and change types and number of parameters
     public static BlankFragment newInstance(String param1, String param2) {
         BlankFragment fragment = new BlankFragment();
@@ -101,10 +120,11 @@ public class BlankFragment extends Fragment {
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
-     */
+     * /
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
 
 }
+/**/
