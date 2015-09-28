@@ -22,6 +22,20 @@ public class DisplayMessageActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.display_message);
         textView.setTextSize(40);
         textView.setText(message);
+
+        // Se agrega el segundo fragment
+        if (findViewById(R.id.BlankFragment2) != null){
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            BlankFragment2 secondFragment = new BlankFragment2();
+
+            secondFragment.setArguments(getIntent().getExtras());
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.BlankFragment2, secondFragment).commit();
+        }
     }
 
     @Override
